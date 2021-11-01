@@ -1,0 +1,13 @@
+#using UnityEngine
+var go = CopyAsset<GameObject>("Base Prefab.prefab");
+if (go)
+{
+	// change collider type
+	Destroy(go.GetComponent<Collider>());
+	go.AddComponent<BoxCollider>();
+
+	// set material
+	go.GetComponent<MeshRenderer>().sharedMaterial = LoadAsset<Material>("../Source Material.mat");
+
+	AddObjectToAsset("GameObject", go);
+}

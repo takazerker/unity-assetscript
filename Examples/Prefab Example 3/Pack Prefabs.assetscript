@@ -1,0 +1,12 @@
+#using UnityEngine
+
+var listPath = GetAssetDirectoryPath() + "/Files.txt";
+DependsOnSourceAsset(listPath);
+
+AddObjectToAsset("desc", new TextAsset("Prefabs listed in Files.txt are packed into this asset."));
+
+foreach (var path in System.IO.File.ReadAllLines(listPath))
+{
+	var go = CopyAsset<GameObject>(path);
+	if (go) AddObjectToAsset(go.name, go);
+}

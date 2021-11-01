@@ -1,0 +1,13 @@
+#using UnityEngine
+
+var asset = CopyAsset<Material>("../Source Material.mat");
+
+if (asset)
+{
+  // convert filename to color
+  Color col;
+  ColorUtility.TryParseHtmlString(System.IO.Path.GetFileNameWithoutExtension(assetPath), out col);
+  asset.color = col;
+
+  AddObjectToAsset("Material", asset);
+}

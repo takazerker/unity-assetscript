@@ -1,0 +1,11 @@
+#using UnityEngine
+var tex = new Texture2D(64, 64);
+var pixels = tex.GetPixels();
+
+for (var i = 0; i < pixels.Length; ++i)
+{
+	pixels[i] = new Color((float)i / pixels.Length, i % 2, (i + 1) % 2);
+}
+
+tex.SetPixels(pixels);
+AddObjectToAsset("Texture", tex);

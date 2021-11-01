@@ -1,0 +1,10 @@
+#using UnityEngine
+
+// Automatically find prefab based on script's name
+var go = CopyAsset<GameObject>(GetAssetPathWithoutExtension() + ".prefab");
+
+if (go)
+{
+	go.GetComponent<Renderer>().sharedMaterial = LoadAsset<Material>("../Source Material.mat");
+	AddObjectToAsset("Prefab", go);
+}
